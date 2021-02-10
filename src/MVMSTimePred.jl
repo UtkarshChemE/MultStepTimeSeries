@@ -53,8 +53,8 @@ function LSTnetCell(feature_length::Integer, hidden::Integer, horizon::Integer)
 end
 
 function show(io::IO, m::LSTnetCell)
-  feat_len = size(m.Encoder.cell.Wi,2)
-  hid_len = size(m.Encoder, 1) ÷ 4
+  feat_len = size(m.Encoder.cell.Wi, 2)
+  hid_len = size(m.Encoder.cell.Wi, 1) ÷ 4
   horizon = size(m.RepeatVec.α, 2)
   print(io, "Encoder(LSTM(", feat_len, ",", hid_len, ")) -> ")
   print(io, "Fully Connected(Dense(", hid_len, ",", hid_len, ", relu)) -> ")

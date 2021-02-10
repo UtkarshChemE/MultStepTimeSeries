@@ -24,15 +24,15 @@ X = @> X begin
 end
 Y = Flux.unstack(Y, 3)
 
-Xtrain = X[1:150] .|> dev
-Xtest = X[151:end] .|> dev
-Ytrain = Y[1:150] .|> dev
-Ytest = Y[151:end] .|> dev
+Xtrain = X[1:150] |> dev
+Xtest = X[151:end] |> dev
+Ytrain = Y[1:150] |> dev
+Ytest = Y[151:end] |> dev
 
 train_data = DataLoader((Xtrain, Ytrain); batchsize = 16)
 println("Training and testing datasets created")
 
-m = LSTnetCell(3, 32, 4)
+m = LSTnetCell(3, 32, 4) |> dev
 println("LSTnet created")
 
 loss(x, y) = mean(Flux.mse.(m.(x), y))
