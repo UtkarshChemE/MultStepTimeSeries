@@ -66,7 +66,10 @@ function (m::LSTnetCell)(x)
   Flux.reset!(m)
   # @info "Network reset"
   # @info "Input data unstacked $(size(Xbatch))"
-  X1 = m.Encoder.(x)[end]
+  for i ∈ x
+    m.Encoder(i)
+  end
+  X1 = m.Encoder.state[1]
   # @info "Context vector of $(size(X1))"
   X2 = m.DenseLayer(X1)
   # @info "Nonlinear context vector of $(size(X2))"

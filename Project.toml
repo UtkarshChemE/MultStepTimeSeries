@@ -1,7 +1,7 @@
 name = "MVMSTimePred"
 uuid = "669fc5da-f07a-41e0-a1de-dfec480b1791"
 authors = ["Utkarsh Shah <shah.1285@osu.edu>"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 BSON = "fbb218c0-5317-5bc6-957e-2ee96dd4b1f0"
